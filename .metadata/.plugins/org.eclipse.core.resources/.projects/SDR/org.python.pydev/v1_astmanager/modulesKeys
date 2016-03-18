@@ -1,0 +1,12 @@
+MODULES_MANAGER_V2
+SDR.__init__|/var/www/html/Sistema-de-Registro-en-django/SDR/SDR/__init__.py
+SDR.settings|/var/www/html/Sistema-de-Registro-en-django/SDR/SDR/settings.py
+SDR.urls|/var/www/html/Sistema-de-Registro-en-django/SDR/SDR/urls.py
+SDR.wsgi|/var/www/html/Sistema-de-Registro-en-django/SDR/SDR/wsgi.py
+app.__init__|/var/www/html/Sistema-de-Registro-en-django/SDR/app/__init__.py
+app.admin|/var/www/html/Sistema-de-Registro-en-django/SDR/app/admin.py
+app.migrations.0001_initial|/var/www/html/Sistema-de-Registro-en-django/SDR/app/migrations/0001_initial.py
+app.migrations.__init__|/var/www/html/Sistema-de-Registro-en-django/SDR/app/migrations/__init__.py
+app.models|/var/www/html/Sistema-de-Registro-en-django/SDR/app/models.py
+app.views|/var/www/html/Sistema-de-Registro-en-django/SDR/app/views.py
+manage|/var/www/html/Sistema-de-Registro-en-django/SDR/manage.py

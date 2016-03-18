@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="TaskPropertiesDialogSettings">
+		<item value="604" key="DIALOG_WIDTH"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="285" key="DIALOG_HEIGHT"/>
+		<item value="210" key="DIALOG_X_ORIGIN"/>
+		<item value="195" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.python.pydev.django.ui.wizards.project.DjangoProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.python.pydev.PythonCategory"/>
+		</list>
+	</section>
+</section>

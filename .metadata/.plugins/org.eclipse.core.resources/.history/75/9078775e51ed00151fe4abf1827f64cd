@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>SRP > Login</title>
+		{% include 'dependecias/css.html' %}
+	</head>
+	<body>
+		<div class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+               <a title="Sistema de registro" class="navbar-brand" href="#"><i class = "fa fa-file" ></i> SDR</a>
+            </div>
+            <div id="navbarCollapse" class="collapse navbar-collapse navbar-ex1-collapse">
+            </div>  
+        <div style="background-color:#ff420e;width:34%;height:5px;float:left;" ></div>  
+        <div style="background-color:#ff950e;width:32%;height:5px;float:left;" ></div>
+        <div style="background-color:#579d1c;width:34%;height:5px;float:left;" ></div>
+        </div>
+        <div style="padding: 40px"></div>
+        <div class= container>
+        	<div class="row">
+        		<div class="col-sm-12">
+        			<div class="col-sm-3"></div>
+        			<div class="col-sm-6">
+        				<form class="form-horizontal">
+        					<fieldset>
+        						<legend><i class='fa fa-user'></i> Login</legend>
+        						<div class='form-group'>
+        							<label class="col-sms-12">Nombre o Correo</label>
+        							<div class="col-sms-12"> 
+        								<input type="text" name='username' id='username' required class="form-control" placeholder="Ingrese nombre o correo" maxlength="30" min="5"> 
+        							</div>
+        						</div>
+        					</fieldset>
+        				</form>
+        			</div>
+        			<div class="col-sm-3"></div>
+        		</div>
+        	</div>
+        </div>
+	</body>
+		{% include 'dependecias/js.html' %}
+		{% load staticfiles %}
+		<script src="{% static "js/index.js" %}"></script>
+</html>

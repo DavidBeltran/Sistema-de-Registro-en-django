@@ -1,0 +1,99 @@
+-- VERSION_4
+-- START DISKCACHE_2
+/var/www/html/Sistema-de-Registro-en-django/.metadata/.plugins/org.eclipse.core.resources/.projects/SDR/com.python.pydev.analysis/v2_indexcache
+app.migrations.0001_initial|1458165530752507000|/var/www/html/Sistema-de-Registro-en-django/SDR/app/migrations/0001_initial.py
+app.migrations.__init__|1458143250955249000|/var/www/html/Sistema-de-Registro-en-django/SDR/app/migrations/__init__.py
+app.admin|1458143250955249000|/var/www/html/Sistema-de-Registro-en-django/SDR/app/admin.py
+SDR.urls|1458334309718545000|/var/www/html/Sistema-de-Registro-en-django/SDR/SDR/urls.py
+app.models|1458165630383790000|/var/www/html/Sistema-de-Registro-en-django/SDR/app/models.py
+app.__init__|1458143250955249000|/var/www/html/Sistema-de-Registro-en-django/SDR/app/__init__.py
+SDR.__init__|1458106469095059000|/var/www/html/Sistema-de-Registro-en-django/SDR/SDR/__init__.py
+app.views|1458334325873953000|/var/www/html/Sistema-de-Registro-en-django/SDR/app/views.py
+SDR.settings|1458168132338428000|/var/www/html/Sistema-de-Registro-en-django/SDR/SDR/settings.py
+SDR.wsgi|1458106469095059000|/var/www/html/Sistema-de-Registro-en-django/SDR/SDR/wsgi.py
+manage|1458106469079060000|/var/www/html/Sistema-de-Registro-en-django/SDR/manage.py
+-- END DISKCACHE
+-- START DICTIONARY
+27
+16=AuthUserGroups.Meta
+6=SDR.urls
+12=AuthGroup.Meta
+19=DjangoContentType.Meta
+22=Migration
+11=AuthUser
+18=DjangoAdminLog.Meta
+24=AuthGroupPermissions
+15=AuthUser.Meta
+21=DjangoSession.Meta
+27=AuthUserUserPermissions
+7=DjangoAdminLog
+23=DjangoSession
+25=AuthUserGroups
+3=app.models
+26=AuthGroup
+10=AuthPermission
+14=AuthPermission.Meta
+20=DjangoMigrations.Meta
+5=app.migrations.0001_initial
+8=DjangoContentType
+9=DjangoMigrations
+17=AuthUserUserPermissions.Meta
+4=app.views
+1=SDR.settings
+2=SDR.wsgi
+13=AuthGroupPermissions.Meta
+-- END DICTIONARY
+-- START TREE 1
+21
+all|1|ALLOWED_HOSTS!11@
+app|1|application!19@
+aut|7|AuthUserGroups!25@AuthGroupPermissions!25@AuthPermission!25@AUTH_PASSWORD_VALIDATORS!11@AuthUser!25@AuthUserUserPermissions!25@AuthGroup!25@
+bas|1|BASE_DIR!11@
+dat|1|DATABASES!11@
+deb|1|DEBUG!11@
+dja|4|DjangoContentType!25@DjangoAdminLog!25@DjangoSession!25@DjangoMigrations!25@
+ins|1|INSTALLED_APPS!11@
+lan|1|LANGUAGE_CODE!11@
+log|1|login!34@
+med|2|MEDIA_ROOT!11@MEDIA_URL!11@
+mid|1|MIDDLEWARE_CLASSES!11@
+mig|1|Migration!41@
+roo|1|ROOT_URLCONF!11@
+sec|1|SECRET_KEY!11@
+sta|3|STATICFILES_DIRS!11@STATIC_ROOT!11@STATIC_URL!11@
+tem|1|TEMPLATES!11@
+tim|1|TIME_ZONE!11@
+url|1|urlpatterns!51@
+use|3|USE_L10N!11@USE_TZ!11@USE_I18N!11@
+wsg|1|WSGI_APPLICATION!11@
+-- END TREE
+-- START TREE 2
+27
+act|2|action_flag!7&27@action_time!7&27@
+app|3|app_label!8&27@app!9&27@applied!9&27@
+cha|1|change_message!7&27@
+cod|1|codename!10&27@
+con|2|content_type!10&27@content_type!7&27@
+dat|1|date_joined!11&27@
+db_|10|db_table!12&27@db_table!13&27@db_table!14&27@db_table!15&27@db_table!16&27@db_table!17&27@db_table!18&27@db_table!19&27@db_table!20&27@db_table!21&27@
+dep|1|dependencies!22&43@
+ema|1|email!11&27@
+exp|1|expire_date!23&27@
+fir|1|first_name!11&27@
+gro|2|group!24&27@group!25&27@
+id|9|id!26&27@id!24&27@id!10&27@id!11&27@id!25&27@id!27&27@id!7&27@id!8&27@id!9&27@
+ini|1|initial!22&43@
+is_|3|is_staff!11&27@is_superuser!11&27@is_active!11&27@
+las|2|last_login!11&27@last_name!11&27@
+man|10|managed!12&27@managed!13&27@managed!14&27@managed!15&27@managed!16&27@managed!17&27@managed!18&27@managed!19&27@managed!20&27@managed!21&27@
+met|10|Meta!26&25@Meta!24&25@Meta!10&25@Meta!11&25@Meta!25&25@Meta!27&25@Meta!7&25@Meta!8&25@Meta!9&25@Meta!23&25@
+mod|1|model!8&27@
+nam|3|name!26&27@name!10&27@name!9&27@
+obj|2|object_repr!7&27@object_id!7&27@
+ope|1|operations!22&43@
+pas|1|password!11&27@
+per|2|permission!24&27@permission!27&27@
+ses|2|session_data!23&27@session_key!23&27@
+uni|5|unique_together!13&27@unique_together!14&27@unique_together!16&27@unique_together!17&27@unique_together!19&27@
+use|4|user!25&27@user!27&27@user!7&27@username!11&27@
+-- END TREE

@@ -16,10 +16,10 @@ Including another URLconf
 from django.conf.urls import url, patterns, include
 from django.conf import settings
 from django.conf.urls.static import static
-from app.views import Index
+from app import views
 
 urlpatterns = [
 
-    url(r'^$', Index.login, name='login'),
+    url(r'^$', views.login, name='login'),
 
 ] + static(settings.STATIC_URL)

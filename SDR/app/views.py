@@ -4,9 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.forms import AuthenticationForm 
 
-class Index():
-	def login(request):
-		context = {}
-		return render(request, "login/login.html")
-		pass
+def login(request):
+	context = {}
+	return render(request, "login/login.html")
+	pass
 		
