@@ -21,5 +21,6 @@ from app import views
 urlpatterns = [
 
     url(r'^$', views.login, name='login'),
+    url(r'^validar-login$', views.validarLogin, name='validar-login'),
 
 ] + static(settings.STATIC_URL)
