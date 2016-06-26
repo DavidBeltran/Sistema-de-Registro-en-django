@@ -4,13 +4,13 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>SRP > Login</title>
+		<title>SDRI > Login</title>
 		{% include 'dependecias/css.html' %}
 	</head>
-	<body ng-app='login-modulo'>
+	<body>
 		<div class="navbar navbar-default navbar-fixed-top">
             <div class="navbar-header">
-               <a title="Sistema de registro" class="navbar-brand" href="#"><i class = "fa fa-file" ></i> SDR</a>
+               <a title="Sistema de registro invetario" class="navbar-brand" href="#"><i class = "fa fa-file" ></i> SDRI</a>
             </div>
             <div id="navbarCollapse" class="collapse navbar-collapse navbar-ex1-collapse">
             </div>  
@@ -18,26 +18,29 @@
         <div style="background-color:#ff950e;width:32%;height:5px;float:left;" ></div>
         <div style="background-color:#579d1c;width:34%;height:5px;float:left;" ></div>
         </div>
-        <div style="padding: 40px"></div>
-        <div style="padding: 40px"></div>
-        <div class="container" ng-controller='formController as fcon'>
+        <div style="padding: 25px"></div>
+        <div id="sms-alert">
+            
+        </div>
+        <div style="padding: 25px"></div>
+        <div class="container">
         	<div class="row">
         		<div class="col-sm-12">
         			<div class="col-sm-3"></div>
         			<div class="col-sm-6">
-        				<form class="form-horizontal" ng-submit='fcon.enviar()'>
+        				<form class="form-horizontal" id="form-login">{% csrf_token %}
         					<fieldset>
         						<legend><i class='fa fa-user'></i> Login</legend>
         						<div class='form-group'>
         							<label class="col-sms-12">Nombre o Correo</label>
         							<div class="col-sms-12"> 
-        								<input type="text" ng-model='fcon.datos.name' name='username' id='username' required class="form-control" placeholder="Ingrese nombre o correo" maxlength="30" min="5"> 
+        								<input type="text" name='username' id='username' required class="form-control" placeholder="Ingrese nombre o correo" maxlength="30" min="5"> 
         							</div>
         						</div>
         						<div class='form-group'>
         							<label class="col-sms-12">Contraseña</label>
         							<div class="col-sms-12"> 
-        								<input type="password" ng-model='fcon.datos.pass' name='password' id='password' required class="form-control" placeholder="Ingrese contraseña" maxlength="15" min="6"> 
+        								<input type="password" name='password' id='password' required class="form-control" placeholder="Ingrese contraseña" maxlength="15" min="6"> 
         							</div>
         						</div>
        						 	<div class='form-group'>
@@ -55,5 +58,5 @@
 	</body>
 		{% include 'dependecias/js.html' %}
 		{% load staticfiles %}
-		<script src="{% static "js/index.js" %}"></script>
+		<script src='{% static "js/index.js" %}'></script>
 </html>

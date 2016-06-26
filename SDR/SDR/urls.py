@@ -20,7 +20,9 @@ from app import views
 
 urlpatterns = [
 
-    url(r'^$', views.login, name='login'),
+    url(r'^$', views.index, name='login'),
     url(r'^validar-login$', views.validarLogin, name='validar-login'),
+    url(r'^menu$', views.menu, name='menu'),
+    url(r'^cerrar-sesion$', views.closeSession, name='cerrar sesion')
 
 ] + static(settings.STATIC_URL)
