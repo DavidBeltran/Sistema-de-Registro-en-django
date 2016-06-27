@@ -23,6 +23,9 @@ urlpatterns = [
     url(r'^$', views.index, name='login'),
     url(r'^validar-login$', views.validarLogin, name='validar-login'),
     url(r'^menu$', views.menu, name='menu'),
-    url(r'^cerrar-sesion$', views.closeSession, name='cerrar sesion')
+    url(r'^cerrar-sesion$', views.closeSession, name='cerrar sesion'),
+    url(r'^menu/nuevo-usuario$', views.newUser, name='nuevo usuario'),
+    url(r'^saveUser$', views.saveUser, name='guardar Usuario'),
+    url(r'^roles$', views.changeRoles, name='Cargar Roles'),
 
 ] + static(settings.STATIC_URL)

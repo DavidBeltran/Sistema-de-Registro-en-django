@@ -1,0 +1,82 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>SDRI > menu > nuevo usuario</title>
+		{% include 'dependecias/css.html' %}
+	</head>
+	<body>
+		{% include 'menus/menu_principal.html' %}
+		<div style="padding:25px"></div>
+		<div id="alert-sms">
+			
+		</div>
+		<div style="padding:25px"></div>
+		<section class="row" style="margin:0">
+			<div class="col-sm-12">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-6">
+					<form class="form-horizontal" id='form-new-user'>{% csrf_token %}
+						<fieldset>
+							<legend><i class="fa fa-users"></i> {{newuser}}</legend>
+						</fieldset>
+						<div class="form-group">
+					      <label for="inputname" class="col-lg-2 control-label">Nombres: </label>
+					      <div class="col-lg-10">
+					        <input type="text" class="form-control" name="first_name" required id="id-name" placeholder="Nombres">
+					      </div>
+					    </div>
+					    <div class="form-group">
+					      <label for="inputlastname" class="col-lg-2 control-label">Apellidos: </label>
+					      <div class="col-lg-10">
+					        <input type="text" class="form-control" name="last_name" required id="id-last-name" placeholder="Apellidos">
+					      </div>
+					    </div>
+					    <div class="form-group">
+					      <label for="inputnameuser" class="col-lg-2 control-label">Nombre de usuario: </label>
+					      <div class="col-lg-10">
+					        <input type="text" class="form-control" name="username" required id="id-name-user" placeholder="Nombre de usuario">
+					      </div>
+					    </div>
+					    <div class="form-group">
+					      <label for="inputEmail" class="col-lg-2 control-label">Email: </label>
+					      <div class="col-lg-10">
+					        <input type="email" class="form-control" name="email" required id="id-email" placeholder="Email">
+					      </div>
+					    </div>
+					    <div class="form-group">
+					      <label for="inputpassword" class="col-lg-2 control-label">Contraseña: </label>
+					      <div class="col-lg-10">
+					        <input type="password" class="form-control" name="password" required id="id-password" placeholder="Contraseña">
+					      </div>
+					    </div>
+					    <div class="form-group">
+					      <label for="inputrol" class="col-lg-2 control-label">Nivel de usuario: </label>
+					      <div class="col-lg-10">
+					        <select id="change-select" name="rol" class="form-control" required>
+					        	<option value="">[Seleccione]</option>
+					        </select>
+					      </div>
+					    </div>
+					    <div class='form-group'>
+                       		<div class="col-lg-12">
+                            	<div class="pull-right">
+						 	        <button class="btn btn-default" type="reset">Limpiar</button>
+						 	        &nbsp;
+						 	        <button class="btn btn-info">Enviar</button>
+                            	</div>
+                        	</div>   
+					 	</div>
+					 	<input type="hidden" name="user" id='id-user'>
+					</form>
+				</div>
+				<div class="col-sm-3"></div>
+			</div>		
+		</section>
+	</body>
+		{% include 'dependecias/js.html'%}
+		<script type="text/javascript" src="{% static 'js/new-user.js'%}"></script>
+</html>	
