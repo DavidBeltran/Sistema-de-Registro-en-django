@@ -2,6 +2,10 @@ from django.shortcuts import HttpResponseRedirect, render, HttpResponse
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
+from django.core.paginator import Paginator
+from django.db.models import Q
+from app.models import AuthUserGroups, AuthUser, AuthGroup
+from datetime import datetime
 import json, re
 
 def index(request):
@@ -81,18 +85,7 @@ def closeSession(request):
 	except Exception:
 		return HttpResponse(str("Se ha producido un error 404."))
 	pass
-
-def newUser(request):
-	try:
-		if request.user.is_authenticated():
-			context = {"newuser":'Nuevo Usuario'}
-			return render(request,"configuracion/new-user.html", context)
-		else:
-			return HttpResponseRedirect("/")
-		pass
-	except Exception:
-		return HttpResponse("Se ha producido un error 404.")
-	pass				
+				
 
 def changeRoles(request):
 	try:
@@ -113,25 +106,84 @@ def saveUser(request):
 			firstname = request.POST["first_name"]
 			lastname = request.POST["last_name"]
 			username = request.POST["username"]
-			password = request.POST["password"]
+			if "password" in request.POST:
+				password = request.POST["password"]
+				pass	
 			email = request.POST["email"]
 			rol = request.POST["rol"]
 			idUser = request.POST["user"]
+			roles = False
 			resp = {};
-			cont = User.objects.filter(email=email).count();
-			if cont > 0 and idUser == "":
-				resp["sms"] = 2;
-			elif idUser != "":
-
-				pass
+			fecha = datetime.now()
+			count = User.objects.filter(Q(email=email) | Q(username=username)).count();
+			if rol == 1: 
+				roles = True 
+			else: 
+				roles = False
+			if idUser != "":
+				count = User.objects.filter(Q(id=idUser) & (Q(email=email) | Q(username=username)));
+				if str(idUser) == str(count[0].id):
+					User.objects.filter(id = idUser).update(email=email, username=username, last_name=lastname, first_name=firstname, is_superuser=roles);
+					resp["sms"] = 2
+				else:
+					resp["sms"] = 1;	
+			elif count > 0 and idUser == "":	
+				resp["sms"] = 1;
 			else:
-
-				pass	
-
-			return HttpResponse("hola")
+				user = User(username=username, email=email, last_name=lastname, first_name=firstname, is_active=False, is_staff=False, is_superuser=roles, date_joined=fecha)
+				user.set_password(password)
+				if user.save() is None:
+					objetoRoles = AuthGroup.objects.get(id=rol);
+					objetoUser = AuthUser.objects.get(email=email)
+					AuthUserGroups(user=objetoUser, group=objetoRoles).save()
+					resp["sms"] = 3
+				else:
+					resp["sms"] = 4
+				pass
+			return HttpResponse(json.dumps(resp))
 		else:
-			return HttpResponse("6")	
+			return HttpResponse("-1")	
+			pass
+	except Exception:
+		return HttpResponse("-1")
+		pass
+
+def newUser(request):
+	try:
+		if request.user.is_authenticated():
+			context = {"newuser":'Nuevo Usuario', "idUser":"", "first_name":"", "last_name":"", "email":"", "username":"", "password":"", "rol":""}
+			return render(request,"configuracion/new-user.html", context)
+		else:
+			return HttpResponseRedirect("/")
+		pass
+	except Exception:
+		return HttpResponse("Se ha producido un error 404.")
+	pass
+
+def updateUSer(request):
+	try:
+		if request.user.is_authenticated():
+			context = {"newuser":'Actualizar Usuario', "idUser":request.user.id, "rol":request.user.groups.all()[0].id,"password":request.user.password,"username":request.user.username,"email":request.user.email,"last_name":request.user.last_name,"first_name":request.user.first_name}
+			return render(request,"configuracion/new-user.html", context)
+		else:
+			return HttpResponseRedirect("/")
+		pass
+	except Exception:
+		return HttpResponse("Se ha producido un error 404.")
+	pass
+
+def searchUser(request):
+	try:
+		query = AuthUserGroups.objects.all();
+		paginacion = Paginator(query, 10)
+		if "page" in request.GET:
+			pagina = request.GET["page"]
+		else:
+			pagina = 1
+		pagination = paginacion.page(pagina)	
+		context = {"pagination":pagination}
+		return render(request,"configuracion/search-user.html", context)
 		pass
 	except Exception:
 		return HttpResponse("-1")
-	pass		
+	pass				

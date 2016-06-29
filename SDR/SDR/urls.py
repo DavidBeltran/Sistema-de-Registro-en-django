@@ -25,7 +25,9 @@ urlpatterns = [
     url(r'^menu$', views.menu, name='menu'),
     url(r'^cerrar-sesion$', views.closeSession, name='cerrar sesion'),
     url(r'^menu/nuevo-usuario$', views.newUser, name='nuevo usuario'),
-    url(r'^saveUser$', views.saveUser, name='guardar Usuario'),
-    url(r'^roles$', views.changeRoles, name='Cargar Roles'),
+    url(r'^menu/actualizar-usuario$', views.updateUSer, name='actualizar usuario'),
+    url(r'^menu/buscar-usuario$', views.searchUser, name='buscar usuario'),
+    url(r'^saveUser$', views.saveUser, name='guardar usuario'),
+    url(r'^roles$', views.changeRoles, name='cargar roles'),
 
 ] + static(settings.STATIC_URL)

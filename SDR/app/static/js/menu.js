@@ -14,7 +14,7 @@ $.searchActive = function(urlReal){
 		case 'user': case 'menu':
 			$("#user").addClass("active");
 		break;	
-		case 'nuevo-usuario':
+		case 'nuevo-usuario': case "buscar-usuario":
 			$("#conf").addClass("active");
 		break;
 		default:

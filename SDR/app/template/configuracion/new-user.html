@@ -19,59 +19,66 @@
 			<div class="col-sm-12">
 				<div class="col-sm-3"></div>
 				<div class="col-sm-6">
-					<form class="form-horizontal" id='form-new-user'>{% csrf_token %}
-						<fieldset>
-							<legend><i class="fa fa-users"></i> {{newuser}}</legend>
-						</fieldset>
-						<div class="form-group">
-					      <label for="inputname" class="col-lg-2 control-label">Nombres: </label>
-					      <div class="col-lg-10">
-					        <input type="text" class="form-control" name="first_name" required id="id-name" placeholder="Nombres">
-					      </div>
-					    </div>
-					    <div class="form-group">
-					      <label for="inputlastname" class="col-lg-2 control-label">Apellidos: </label>
-					      <div class="col-lg-10">
-					        <input type="text" class="form-control" name="last_name" required id="id-last-name" placeholder="Apellidos">
-					      </div>
-					    </div>
-					    <div class="form-group">
-					      <label for="inputnameuser" class="col-lg-2 control-label">Nombre de usuario: </label>
-					      <div class="col-lg-10">
-					        <input type="text" class="form-control" name="username" required id="id-name-user" placeholder="Nombre de usuario">
-					      </div>
-					    </div>
-					    <div class="form-group">
-					      <label for="inputEmail" class="col-lg-2 control-label">Email: </label>
-					      <div class="col-lg-10">
-					        <input type="email" class="form-control" name="email" required id="id-email" placeholder="Email">
-					      </div>
-					    </div>
-					    <div class="form-group">
-					      <label for="inputpassword" class="col-lg-2 control-label">Contraseña: </label>
-					      <div class="col-lg-10">
-					        <input type="password" class="form-control" name="password" required id="id-password" placeholder="Contraseña">
-					      </div>
-					    </div>
-					    <div class="form-group">
-					      <label for="inputrol" class="col-lg-2 control-label">Nivel de usuario: </label>
-					      <div class="col-lg-10">
-					        <select id="change-select" name="rol" class="form-control" required>
-					        	<option value="">[Seleccione]</option>
-					        </select>
-					      </div>
-					    </div>
-					    <div class='form-group'>
-                       		<div class="col-lg-12">
-                            	<div class="pull-right">
-						 	        <button class="btn btn-default" type="reset">Limpiar</button>
-						 	        &nbsp;
-						 	        <button class="btn btn-info">Enviar</button>
-                            	</div>
-                        	</div>   
-					 	</div>
-					 	<input type="hidden" name="user" id='id-user'>
-					</form>
+					<div class="well">
+						<form class="form-horizontal" id='form-new-user'>{% csrf_token %}
+							<fieldset>
+								<legend><i class="fa fa-users"></i> {{newuser}}</legend>
+							</fieldset>
+							<div class="form-group">
+						      <label for="inputname" class="col-lg-2 control-label">Nombres: </label>
+						      <div class="col-lg-10">
+						        <input type="text" class="form-control" value="{{first_name}}" name="first_name" required id="id-name" placeholder="Nombres">
+						      </div>
+						    </div>
+						    <div class="form-group">
+						      <label for="inputlastname" class="col-lg-2 control-label">Apellidos: </label>
+						      <div class="col-lg-10">
+						        <input type="text" class="form-control" value="{{last_name}}" name="last_name" required id="id-last-name" placeholder="Apellidos">
+						      </div>
+						    </div>
+						    <div class="form-group">
+						      <label for="inputnameuser" class="col-lg-2 control-label">Nombre de usuario: </label>
+						      <div class="col-lg-10">
+						        <input type="text" class="form-control" value="{{username}}" name="username" required id="id-name-user" placeholder="Nombre de usuario">
+						      </div>
+						    </div>
+						    <div class="form-group">
+						      <label for="inputEmail" class="col-lg-2 control-label">Email: </label>
+						      <div class="col-lg-10">
+						        <input type="email" class="form-control" value="{{email}}"" name="email" required id="id-email" placeholder="Email">
+						      </div>
+						    </div>
+						    {% if idUser == "" %}
+							    <div class="form-group">
+							      <label for="inputpassword" class="col-lg-2 control-label">Contraseña: </label>
+							      <div class="col-lg-10">
+							        <input type="password" class="form-control" value="" name="password" required id="id-password" placeholder="Contraseña">
+							      </div>
+							    </div>
+							{% endif %}    
+						    <div class="form-group">
+						      <label for="inputrol" class="col-lg-2 control-label">Nivel de usuario: </label>
+						      <div class="col-lg-10">
+						        <select id="change-select" name="rol" class="form-control" required>
+						        	<option value="">[Seleccione]</option>
+						        </select>
+						      </div>
+						    </div>
+						    <div class='form-group'>
+	                       		<div class="col-lg-12">
+	                            	<div class="pull-right">
+	                            	{% if idUser == "" %}
+							 	        <button class="btn btn-default" type="reset">Limpiar</button>
+							 	    {% endif %}
+							 	    	&nbsp;    
+							 	        <button class="btn btn-info">Enviar</button>
+	                            	</div>
+	                        	</div>   
+						 	</div>
+						 	<input type="hidden" name="user" value="{{idUser}}" id='id-user'>
+						 	<input type="hidden" name="select-group" id="select-group" value="{{rol}}">
+						</form>
+					</div>
 				</div>
 				<div class="col-sm-3"></div>
 			</div>		

@@ -26,7 +26,7 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="/menu/nuevo-usuario">Nuevo Usuario</a></li>
             <li class="divider"></li>
-            <li><a href="#">Consultar Usuarios</a></li>
+            <li><a href="/menu/buscar-usuario">Consultar Usuarios</a></li>
             <li class="divider"></li>
             <li><a href="#">Respaldo Y Recuperación</a></li>
           </ul>
@@ -37,7 +37,9 @@
       	<li class="dropdown" id='user'>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{request.user.get_full_name}}<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Editar Perfil</a></li>
+            <li><a href="/menu/actualizar-usuario">Editar Perfil</a></li>
+            <li class="divider"></li>
+            <li><a href="/menu/actualizar-usuario">Editar Contraseña</a></li>
             <li class="divider"></li>
             <li><a href="/cerrar-sesion">Cerrar Sesión</a></li>
           </ul>
