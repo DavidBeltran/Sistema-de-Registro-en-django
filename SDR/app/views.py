@@ -1,6 +1,5 @@
 from django.shortcuts import HttpResponseRedirect, render, HttpResponse
 from django.contrib.auth import login, authenticate, logout
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -163,7 +162,12 @@ def newUser(request):
 def updateUSer(request):
 	try:
 		if request.user.is_authenticated():
-			context = {"newuser":'Actualizar Usuario', "idUser":request.user.id, "rol":request.user.groups.all()[0].id,"password":request.user.password,"username":request.user.username,"email":request.user.email,"last_name":request.user.last_name,"first_name":request.user.first_name}
+			if "id" in request.GET:
+				idUser = request.GET["id"]
+				query = AuthUserGroups.objects.filter(user=idUser)
+				context = {"newuser":'Actualizar Usuario', "idUser":idUser, "first_name":query[0].user.first_name, "last_name":query[0].user.last_name, "email":query[0].user.email, "username":query[0].user.username, "rol":query[0].group.id}
+			else:
+				context = {"newuser":'Actualizar Usuario', "idUser":request.user.id, "rol":request.user.groups.all()[0].id,"password":request.user.password,"username":request.user.username,"email":request.user.email,"last_name":request.user.last_name,"first_name":request.user.first_name}
 			return render(request,"configuracion/new-user.html", context)
 		else:
 			return HttpResponseRedirect("/")
@@ -172,18 +176,33 @@ def updateUSer(request):
 		return HttpResponse("Se ha producido un error 404.")
 	pass
 
+
 def searchUser(request):
+	try:
+		if request.user.is_authenticated():
+			context = {}
+			return render(request,"configuracion/search-user.html", context)
+		else:
+			return HttpResponseRedirect("/")	
+		pass
+	except Exception:
+		return HttpResponse("Se ha producido un error 404.")
+	pass
+
+
+def searchUserTable(request):
 	try:
 		query = AuthUserGroups.objects.all();
 		paginacion = Paginator(query, 10)
-		if "page" in request.GET:
-			pagina = request.GET["page"]
+		if "index" in request.GET:
+			pagina = int(request.GET["index"])
 		else:
-			pagina = 1
+			pagina = int(1)
 		pagination = paginacion.page(pagina)	
 		context = {"pagination":pagination}
-		return render(request,"configuracion/search-user.html", context)
+		html = render(request, "configuracion/tabla-user.html", context)
+		return html
 		pass
 	except Exception:
-		return HttpResponse("-1")
-	pass				
+		return HttpResponse("Se ha producido un error 404.")
+	pass			

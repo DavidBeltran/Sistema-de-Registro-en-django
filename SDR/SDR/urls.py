@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^menu/nuevo-usuario$', views.newUser, name='nuevo usuario'),
     url(r'^menu/actualizar-usuario$', views.updateUSer, name='actualizar usuario'),
     url(r'^menu/buscar-usuario$', views.searchUser, name='buscar usuario'),
+    url(r'^menu/tabla-usuario$', views.searchUserTable, name='tabla usuario'),
     url(r'^saveUser$', views.saveUser, name='guardar usuario'),
     url(r'^roles$', views.changeRoles, name='cargar roles'),
 
